@@ -32,12 +32,13 @@ namespace COMP123_Programming2_Assignment02
         {
             Random rnd = new Random();
             this.strength = rnd.Next(1, 100);
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++");
             Console.WriteLine("The hero's strength score is {0}", this.strength);
             this.speed = rnd.Next(1, 100);
             Console.WriteLine("The hero's speed score is {0}", this.speed);
             this.health = rnd.Next(1, 100);
             Console.WriteLine("The hero's health score is {0}", this.health);
-            Console.WriteLine("");
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++");
         }
 
         // Public METHODS +++++++++++++++++++++++++++++++++++++++++++

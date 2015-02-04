@@ -24,27 +24,16 @@ namespace COMP123_Programming2_Assignment02
         // Randomly generates three random superpowers
         private void generateRandomPowers()
         {
+            //A way to declare and initialize an array
             string[] superPowers = { "Super Speed", "Super Strength", "Body Armour", "Flight", 
                                      "Fire Generation", "Weather Control"};
-            
+            //declare a new array
             string[] randomPowers = new string[3];
             
             Random rnd = new Random();
             int randomPower;
 
-            /*
-            for(int i = 0 ; i < randomPowers.Length ; i++)
-            {
-               randomPower = generateRandomPower(rnd);
-
-               if (superPowers[randomPower] != "unbelievable")
-               {
-                  randomPowers[i] = superPowers[randomPower] ;
-                  superPowers[randomPower] = "unbelievable";
-               }   
-            }
-             */
-
+            //Assign cells from an array to another 
             int index = 0;
             while (index < 3)
             {
@@ -56,21 +45,36 @@ namespace COMP123_Programming2_Assignment02
                     index++;
                 }
             }
+
+            //Alternate Looping Structure
+            /*
+            for(int i = 0 ; i < randomPowers.Length ; i++)
+            {
+               randomPower = generateRandomPower(rnd);
+
+               if (superPowers[randomPower] != "unbelievable")
+               {
+                  randomPowers[i] = superPowers[randomPower] ;
+                  superPowers[randomPower] = "unbelievable";
+               }   
+            }
+            */
             randomSuperPower1 = randomPowers[0];
             randomSuperPower2 = randomPowers[1];
             randomSuperPower3 = randomPowers[2];
         }
-        
+
+        //PRIVATE METHODS,generate random number for super power.
         private static int generateRandomPower(Random rnd)
         {
             int randomPower;
             randomPower = rnd.Next(6);
-            Console.WriteLine("Random super power is {0}", randomPower);// Debugging line
+            Console.WriteLine("Random super power number is {0}", randomPower);// Debugging line
             return randomPower;
         }
         
 
-        //PUBLIC METHODS
+        //PUBLIC METHODS,output random super power.
         public void showPowers()
         {
             Console.WriteLine("++++++++++++++++++++++++++++++++++++++");
@@ -79,7 +83,6 @@ namespace COMP123_Programming2_Assignment02
             Console.WriteLine("2) {0}", randomSuperPower2);
             Console.WriteLine("3) {0}", randomSuperPower3);
             Console.WriteLine("++++++++++++++++++++++++++++++++++++++");
-            Console.WriteLine("");
         }
     }
 }
