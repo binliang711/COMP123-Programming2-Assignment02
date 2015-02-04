@@ -9,7 +9,7 @@ namespace COMP123_Programming2_Assignment02
     //SuperHero class is a subclass	of the Hero superclass from	Assignment1
     class SuperHero : Hero
     {
-        string superPower1, superPower2, superPower3; 
+        string randomSuperPower1, randomSuperPower2, randomSuperPower3; 
         //PRIVATE PROPERTIES++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         private string[] superPowers;
 
@@ -24,33 +24,60 @@ namespace COMP123_Programming2_Assignment02
         // Randomly generates three random superpowers
         private void generateRandomPowers()
         {
-            string[] superPowers = { "Super	Speed", "Super	Strength", "Body Armour", "Flight", 
+            string[] superPowers = { "Super Speed", "Super Strength", "Body Armour", "Flight", 
                                      "Fire Generation", "Weather Control"};
             
             string[] randomPowers = new string[3];
+            
             Random rnd = new Random();
+            int randomPower;
+
+            /*
             for(int i = 0 ; i < randomPowers.Length ; i++)
             {
-                  randomPowers[i] = superPowers[rnd.Next(superPowers.Length)];
-                  //test randomPowers[i] value
-                  //Console.WriteLine("{0}", randomPowers[i]);
-                  superPowers[i] = randomPowers[i];
-                  //test superPowers[i] value
-                  //Console.WriteLine("{0}", superPowers[i]);
+               randomPower = generateRandomPower(rnd);
+
+               if (superPowers[randomPower] != "unbelievable")
+               {
+                  randomPowers[i] = superPowers[randomPower] ;
+                  superPowers[randomPower] = "unbelievable";
+               }   
             }
-            superPower1 = superPowers[0];
-            superPower2 = superPowers[1];
-            superPower3 = superPowers[2];
+             */
+
+            int index = 0;
+            while (index < 3)
+            {
+                randomPower = generateRandomPower(rnd);
+                if (superPowers[randomPower] != "unbelievable")
+                {
+                    randomPowers[index] = superPowers[randomPower];
+                    superPowers[randomPower] = "unbelievable";
+                    index++;
+                }
+            }
+            randomSuperPower1 = randomPowers[0];
+            randomSuperPower2 = randomPowers[1];
+            randomSuperPower3 = randomPowers[2];
         }
+        
+        private static int generateRandomPower(Random rnd)
+        {
+            int randomPower;
+            randomPower = rnd.Next(6);
+            Console.WriteLine("Random super power is {0}", randomPower);// Debugging line
+            return randomPower;
+        }
+        
 
         //PUBLIC METHODS
         public void showPowers()
         {
             Console.WriteLine("++++++++++++++++++++++++++++++++++++++");
             Console.WriteLine("The hero's super powers are:");
-            Console.WriteLine("1) {0}", superPower1);
-            Console.WriteLine("2) {0}", superPower2);
-            Console.WriteLine("3) {0}", superPower3);
+            Console.WriteLine("1) {0}", randomSuperPower1);
+            Console.WriteLine("2) {0}", randomSuperPower2);
+            Console.WriteLine("3) {0}", randomSuperPower3);
             Console.WriteLine("++++++++++++++++++++++++++++++++++++++");
             Console.WriteLine("");
         }
